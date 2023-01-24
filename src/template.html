@@ -7,8 +7,57 @@
     <title><%= htmlWebpackPlugin.options.title %></title>
 </head>
 <body>
-    <h1>Todo App</h1>
-    
-    
+    <header>
+        <div class="logo">
+            <p>Todo List</p>
+        </div>
+        
+    </header>
+
+
+    <div class="container">
+        <div class="left_menu">
+
+            <div class="top_menu">
+                <ul class="nav">
+                    
+                    <li>
+                        <img src="<%= require('./assets/inbox.png') %>" alt="" width="24px">
+                        <span>Inbox</span>
+                    </li>
+                    <li>
+                        <img src="<%= require('./assets/today.png') %>" alt="" width="24px">
+                        <span>Today</span>
+                    </li>
+                    <li>
+                        <img src="<%= require('./assets/7-days.png') %>" alt="" width="24px">
+                        <span>Week</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="project_menu">
+                <div class="add-project-bar">
+                    <span>Projects</span>
+                    <div class="project-btns">
+                        <img src="<%= require('./assets/plus.png') %>" alt="" width="16px">
+                        <div id="arrow" class="arrow" aria-expanded="false"></div>
+                       
+                    </div>
+                </div>
+                
+                <ul class="nav-project">
+                    <li><span style="font-size: 16px;">s</span></li>
+                    <li>Siłownia</li>
+                    <!-- <li>exampleexamp</li> -->
+                </ul>
+            </div>
+        </div>
+
+        <div class="main_container">
+            
+        </div>
+    </div>
+
 </body>
 </html>
