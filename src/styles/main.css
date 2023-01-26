@@ -3,6 +3,14 @@
     --lower_navy: #404258F3;
     --gray: #474E68;
     --white: #ffffff;
+    --btn_add: #de4c4a;
+    --btn_cancel: #292929;
+}
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
 }
 
 * {
@@ -10,10 +18,6 @@
     margin: 0;
     padding: 0;
     font-family: sans-serif;
-}
-
-body {
-    background-color: var(--gray);
 }
 
 header {
@@ -32,7 +36,6 @@ header {
     grid-auto-flow: column;
     
 }
-
 
 /* LEFT MENU */
 .left_menu {
@@ -81,8 +84,6 @@ header {
     
 }
 
-
-
 .arrow {
     height: 16px;
     width: 16px;
@@ -111,29 +112,32 @@ header {
 
 .nav-project {
     visibility: hidden;
-}
+    opacity: 0;
+    transition: opacity 0.6s linear;
+} 
 
 .dropdown {
     visibility: visible;
-    transition: transform .25s;
+    cursor: none;
+    opacity: 1;
 }
 
 .nav-project li, .dropdown li{
-    margin-left: 20px;
-    margin-top: 15px;
+    margin-left: 5px;
     color: var(--white);
     font-size: 16px;
     padding: 5px;
+    display: flex;
+    align-items: center;
 }
 
 .nav-project li, .dropdown li::before {
     /* content: url("../assets/bullet.png"); */
     content: "•";
-    color: "red";
     display: inline-block; 
     width: 1em;
-    font-size: 34px;
-    
+    font-size: 24px;
+    /* background-color: aqua; */
 }
 
 .nav-project li:hover, .dropdown li:hover
@@ -143,8 +147,107 @@ header {
     border-radius: 5px;
 }
 
+/* Project Form after on click + */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgb(0, 0, 0, 0.4);
+    padding-top: 60px;
+}
+
+.modal-content {
+    width: 450px;
+    margin: 5% auto 15% auto;
+    border: 1px solid #000;
+    background-color: var(--navy);
+    color: var(--white);
+    border: 10px;
+    border-radius: 10px;
+}
+
+.projectHeader {
+    font-size: 12px;
+    padding: 15px;
+}
+
+.projectContent {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.projectContent span {
+    margin: 5px 0;
+}
+input[name="project_name"] {
+    width: calc(100% - 12px);
+    background-color: var(--navy);
+    border: 2px solid;
+    border-color:  var(--gray);
+    border-radius: 5px;
+    padding: 10px;
+    color: var(--white)
+}
+
+hr {
+    border-bottom: 1px solid var(--white);
+}
+
+.btn_container {
+    padding: 15px;
+    display: flex;
+    justify-content: end;
+    width: calc(100% - 12px);
+}
+
+.btn-cancel, .btn-submit {
+    padding: 5px 10px;
+    border: 0px;
+    border-radius: 3px;
+    color: var(--white);
+    font-weight: 600;
+    cursor: pointer;
+    
+}
+.btn-cancel {
+    background-color: var(--btn_cancel);
+    margin-right: 10px;
+}
+
+.btn-submit {
+    background-color: var(--btn_add);
+    
+}
+
 /* RIGHT CONTENT */
 .main_container {
     background-color: var(--gray);
     padding: 30px 80px;
 }
+
+/* Inbox Content */
+.inbox {
+    color: var(--white)
+}
+
+.add_task_btn {
+    background-color: rgb(0, 0, 0, 0);
+    border: 0;
+    cursor: pointer;
+    margin: 20px 0;
+    display: flex;
+}
+
+.add_task_btn span {
+
+    margin-left: 10px;
+}
+
+

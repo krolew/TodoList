@@ -11,5 +11,9 @@ Todo-projects
 -default projects
 -adding,delete projects
 
+Todo-projects-input
+-name
+
+
 css
 -basic animations XD

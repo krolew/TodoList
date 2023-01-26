@@ -14,10 +14,29 @@
         
     </header>
 
+    <div id="hiddenForm" class="modal" >
+        <form class="modal-content animate" action="#">
+
+            <div class="projectFormContainer">
+                <div class="projectHeader" >
+                    <h1>New Project</h1>
+                </div>
+                <hr>
+                <div class="projectContent">
+                    <span>Name</span>
+                    <input type="text" name="project_name">
+                </div>
+                <div class="btn_container">
+                    <button type="button" onclick="document.getElementById('hiddenForm').style.display='none'" class="btn-cancel">Close</button>
+                    <button class="btn-submit">Add Project</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
 
     <div class="container">
         <div class="left_menu">
-
             <div class="top_menu">
                 <ul class="nav">
                     
@@ -40,7 +59,7 @@
                 <div class="add-project-bar">
                     <span>Projects</span>
                     <div class="project-btns">
-                        <img src="<%= require('./assets/plus.png') %>" alt="" width="16px">
+                        <img src="<%= require('./assets/plus.png') %>" alt="" id="create_btn" width="16px" onclick="document.getElementById('hiddenForm').style.display='block'">
                         <div id="arrow" class="arrow" aria-expanded="false"></div>
                        
                     </div>
@@ -55,7 +74,21 @@
         </div>
 
         <div class="main_container">
-            
+            <!-- Inbox content -->
+            <div class="inbox">
+                <h1>Inbox</h1>
+                <button class="add_task_btn" ><img src="<%= require('./assets/plus.png') %>" alt=""  width="16px" onclick=""><span>Add task</span></button>
+            </div>
+                
+            <!-- Today content -->
+            <!-- <div class="inbox">
+                <h1>Today</h1>
+                <button class="add_task_btn" ><img src="<%= require('./assets/plus.png') %>" alt=""  width="16px" onclick=""><span>Add task</span></button>
+            </div>     -->
+            <!-- Week content -->
+
+
+
         </div>
     </div>
 
