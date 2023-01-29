@@ -11,11 +11,11 @@
         <div class="logo">
             <p>Todo List</p>
         </div>
-        
+        <!-- <button class="add_task_btn" onclick="document.getElementById('hiddenFormToday').display = 'block'" ><img src="<%= require('./assets/plus.png') %>" alt=""  width="16px" onclick=""><span>Add task</span></button> -->
     </header>
 
     <div id="hiddenForm" class="modal" >
-        <form class="modal-content animate" action="#">
+        <form id="projectForm" class="modal-content animate" action="#">
 
             <div class="projectFormContainer">
                 <div class="projectHeader" >
@@ -24,31 +24,91 @@
                 <hr>
                 <div class="projectContent">
                     <span>Name</span>
-                    <input type="text" name="project_name">
+                    <input type="text" name="project_name" class="inputForm" maxlength="100">
+                    <small class="errorText"></small>
                 </div>
                 <div class="btn_container">
                     <button type="button" onclick="document.getElementById('hiddenForm').style.display='none'" class="btn-cancel">Close</button>
-                    <button class="btn-submit">Add Project</button>
+                    <button id="create-project" class="btn-submit">Add Project</button>
                 </div>
             </div>
 
         </form>
     </div>
 
+    <div id="hiddenTaskForm" class="modal">
+
+        <form  class="modal-content animate" action="#">
+            <div class="projectFormContainer">
+                <div class="projectHeader">
+                    <h1>New Task</h1>
+                </div>
+                <hr>
+
+                <div class="projectContent">
+                    <span>Title</span>
+                    <input type="text" name="task_name" class="inputForm" maxlength="100">
+                </div>
+
+                <div class="projectContent">
+                    <span>Description</span>
+                    <textarea name="" id="" class="textAreaForm" maxlength="270"></textarea>
+                </div>
+
+                <div class="projectContent">
+                    <span>Due Date:</span>
+                    <input type="date" min="2023-01-01" class="inputForm">
+                </div>
+
+                <div class="projectContent">
+                    <span>Priority</span>
+                    <select name="" id="" class="inputForm select-wrapper">
+                        <option value="Low">Low</option>
+                        <option value="Medium">Medium</option>
+                        <option value="High">High</option>
+                        
+                        
+                        <!-- <option value="">#project1</option>
+                        <option value="">#project2</option> -->
+                    </select>
+                </div>
+
+                <div class="projectContent">
+                    <span>Project</span>
+                    <select name="" id="" class="inputForm">
+                        <option value="">Inbox</option>
+                        
+                    </select>
+                </div>
+
+                
+
+                <div class="btn_container">
+                    <button type="button" onclick="document.getElementById('hiddenTaskForm').style.display='none'" class="btn-cancel">Close</button>
+                    <button class="btn-submit">Add Task</button>
+                </div>
+            </div>
+
+        </form>
+        
+    </div>
+    
+
+
     <div class="container">
         <div class="left_menu">
             <div class="top_menu">
                 <ul class="nav">
                     
-                    <li>
+                    <li class="inbox-btn" onclick="inboxbtn_onclick() ">
                         <img src="<%= require('./assets/inbox.png') %>" alt="" width="24px">
                         <span>Inbox</span>
                     </li>
-                    <li>
+                    <li id="today" class="today-btn active" onclick="todaybtn_onclick()">
                         <img src="<%= require('./assets/today.png') %>" alt="" width="24px">
                         <span>Today</span>
                     </li>
-                    <li>
+                    <li id="week" class="week-btn" onclick="weekbtn_onclick()">
                         <img src="<%= require('./assets/7-days.png') %>" alt="" width="24px">
                         <span>Week</span>
                     </li>
@@ -61,11 +121,10 @@
                     <div class="project-btns">
                         <img src="<%= require('./assets/plus.png') %>" alt="" id="create_btn" width="16px" onclick="document.getElementById('hiddenForm').style.display='block'">
                         <div id="arrow" class="arrow" aria-expanded="false"></div>
-                       
                     </div>
                 </div>
                 
-                <ul class="nav-project">
+                <ul class="nav nav-project">
                     <li><span style="font-size: 16px;">s</span></li>
                     <li>Siłownia</li>
                     <!-- <li>exampleexamp</li> -->
@@ -75,20 +134,22 @@
 
         <div class="main_container">
             <!-- Inbox content -->
-            <div class="inbox">
+            <div class="inboxContainer">
                 <h1>Inbox</h1>
-                <button class="add_task_btn" ><img src="<%= require('./assets/plus.png') %>" alt=""  width="16px" onclick=""><span>Add task</span></button>
+                <button class="add_task_btn" onclick="document.getElementById('hiddenTaskForm').style.display = 'block'" ><img src="<%= require('./assets/plus.png') %>" alt=""  width="16px" onclick=""><span>Add task</span></button>
             </div>
                 
             <!-- Today content -->
-            <!-- <div class="inbox">
+            <div class="todayContainer">
                 <h1>Today</h1>
-                <button class="add_task_btn" ><img src="<%= require('./assets/plus.png') %>" alt=""  width="16px" onclick=""><span>Add task</span></button>
-            </div>     -->
+                <button class="add_task_btn" onclick="document.getElementById('hiddenTaskForm').style.display = 'block'" ><img src="<%= require('./assets/plus.png') %>" alt=""  width="16px" onclick=""><span>Add task</span></button>
+            </div>
+        
             <!-- Week content -->
-
-
-
+            <div class="weekContainer">
+                <h1>Week</h1>
+                <button class="add_task_btn" onclick="document.getElementById('hiddenTaskForm').style.display = 'block'"><img src="<%= require('./assets/plus.png') %>" alt=""  width="16px" onclick=""><span>Add task</span></button>
+            </div>
         </div>
     </div>
 

@@ -140,12 +140,20 @@ header {
     /* background-color: aqua; */
 }
 
-.nav-project li:hover, .dropdown li:hover
+.nav-project li:hover, 
+.dropdown li:hover
 {
     background-color: #42445e;
     border: 3px;
     border-radius: 5px;
 }
+
+.active{
+    background-color: #42445e;
+    border: 3px;
+    border-radius: 5px;
+}
+
 
 /* Project Form after on click + */
 .modal {
@@ -186,7 +194,7 @@ header {
 .projectContent span {
     margin: 5px 0;
 }
-input[name="project_name"] {
+.inputForm, select {
     width: calc(100% - 12px);
     background-color: var(--navy);
     border: 2px solid;
@@ -246,8 +254,60 @@ hr {
 }
 
 .add_task_btn span {
-
     margin-left: 10px;
 }
+
+.weekContainer {
+    display: none;
+}
+.inboxContainer {
+    display: none;
+}
+
+.hideContainer {
+    display: none;
+}
+
+.showContainer {
+    display: block;
+}
+
+.textAreaForm {
+    width: calc(100% - 12px);
+    height: 150px;
+    background-color: var(--navy);
+    border: 2px solid;
+    border-color:  var(--gray);
+    border-radius: 5px;
+    padding: 10px;
+    color: var(--white);
+    resize: none;
+}
+
+.error {
+    width: calc(100% - 12px);
+    background-color: var(--navy);
+    border: 2px solid;
+    border-color:  red;
+    border-radius: 5px;
+    padding: 10px;
+    color: var(--white)
+}
+
+.errorText{
+    display: block;
+}
+small {
+    margin-top: 10px;
+    color: red;
+    display: none;
+}
+
+::-webkit-calendar-picker-indicator{
+    background-color: var(--navy);
+    
+}
+
+
 
 

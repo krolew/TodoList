@@ -1,3 +1,4 @@
-import arrow  from "./animation";
 import "./styles/main.css"
-import elementFromHtml from "./createProject";
+import { arrow, inboxbtn_onclick, todaybtn_onblick, weekbtn_onclick } from "./animation";
+import todaybtn_onclick from "./animation";
+import onclick from "./createProject"
