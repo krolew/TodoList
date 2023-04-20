@@ -1,3 +1,5 @@
+// const { eventNames } = require("process")
+import createProjectContent from "./createProject"
 const arrow = document.querySelector("#arrow")
 const navproject = document.querySelector(".nav-project")
 
@@ -31,19 +33,6 @@ window.inboxbtn_onclick = function () {
     inbox_container.classList = "showContainer"
 }
 
-// show and hide active project on left bar
-arrow.addEventListener("click", function(event) {
-    event.target.classList.toggle("down");
-
-    if (arrow.ariaExpanded){
-        navproject.className = "nav-project"
-        arrow.ariaExpanded = false
-    } else{
-        navproject.className = "dropdown"
-        arrow.ariaExpanded = true
-    }
-})
-
 // Current Active Inbox, Today, Week or projects
 
 document.querySelectorAll(".nav").forEach((el) =>{
@@ -55,47 +44,42 @@ document.querySelectorAll(".nav").forEach((el) =>{
                 {
                     currentActive.classList.remove("active")
                 }
-                console.log(currentActive)
+                // console.log(currentActive)
                 e.target.classList.add("active")
         })
     }
 });
 
 
-const modalProject = document.querySelector("#hiddenForm")
 const modalTask = document.querySelector("#hiddenTaskForm")
 
-
 window.onclick = function(e) {
-    console.log(e)
-    if (e.target == modalProject){  
-        modalProject.style.display = "none" 
-
-    }
     
     if (e.target == modalTask){
         modalTask.style.display = "none"
     }
-
-    clearErrorInput()
 }
 
-function clearErrorInput() {
-    const errorInputs = document.querySelectorAll(".error")
-    const errorTexts = document.querySelectorAll(".errorText")
-    
-    if (errorInputs) {
-        errorInputs.forEach((el) => {
-            el.classList.remove("error")
-        })
-    }
+// 
 
-    if (errorTexts){
-        errorTexts.forEach((el)=>{
-            el.classList.remove("errorText")
-        })
-    }
-    
-    return false;
+function currentStaus(event) {
+    const activeProject = document.querySelector(".active")
+
+    activeProject.classList.remove("active")
+    event.target.classList.add("active")
+
+    let name = event.target.getAttribute("name")
+    createProjectContent(name)
     
 }
+
+const btn = document.querySelector(".btn_add_task")
+
+export default currentStaus
+
+/*  
+    1. check localStorage if there is already exist project
+        a. if Exist getlocalstorage items and print in to website
+        b. if no Exist createElement in LocalStorage and set as active
+       
+*/

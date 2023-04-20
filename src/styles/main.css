@@ -294,13 +294,16 @@ hr {
     color: var(--white)
 }
 
-.errorText{
-    display: block;
-}
+
 small {
     margin-top: 10px;
     color: red;
     display: none;
+}
+
+.errorText {
+    margin-top: 5px;
+    color: red;
 }
 
 ::-webkit-calendar-picker-indicator{
