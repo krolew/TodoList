@@ -1,38 +1,61 @@
-// const { eventNames } = require("process")
-import createProjectContent from "./createProject"
 const arrow = document.querySelector("#arrow")
-const navproject = document.querySelector(".nav-project")
+// const navproject = document.querySelector(".nav-project")
 
-const inbox_btn = document.querySelector(".inbox-btn")
-const today_btn = document.querySelector(".today-btn")
-const week_btn = document.querySelector(".week-btn")
+// const inbox_btn = document.querySelector(".inbox-btn")
+// const today_btn = document.querySelector(".today-btn")
+// const week_btn = document.querySelector(".week-btn")
 
-// const main_container = document.querySelector(".main_container")
-const inbox_container = document.querySelector(".inboxContainer")
-const today_container = document.querySelector(".todayContainer")
-const week_container = document.querySelector(".weekContainer")
+// // const main_container = document.querySelector(".main_container")
+// const inbox_container = document.querySelector(".inboxContainer")
+// const today_container = document.querySelector(".todayContainer")
+// const week_container = document.querySelector(".weekContainer")
 
 
-window.weekbtn_onclick = function () {
-    inbox_container.classList = "hideContainer"
-    today_container.classList = "hideContainer"
-    week_container.classList = "showContainer"
+// window.weekbtn_onclick = function () {
+//     inbox_container.classList = "hideContainer"
+//     today_container.classList = "hideContainer"
+//     week_container.classList = "showContainer"
 
+// }
+
+// window.todaybtn_onclick = function () {
+//     inbox_container.classList = "hideContainer"
+//     week_container.classList = "hideContainer"
+//     today_container.classList = "showContainer"
+// }
+
+
+// window.inboxbtn_onclick = function () {
+//     today_container.classList = "hideContainer"
+//     week_container.classList = "hideContainer"
+//     inbox_container.classList = "showContainer"
+// }
+
+// const app = (() =>{
+//     navBtns = document.querySelectorAll("li[data-id]")
+//     navBtns.forEach((navBtn)=>{
+//         let btn = navBtn.getAttribute("data-id")
+//         if (btn == "inbox"){
+
+//         }
+
+//         if (btn == "today"){
+
+//         }
+
+//         if (btn == "week"){
+
+//         }
+//     })
+// })()
+
+function userSelection() {
+    
 }
 
-window.todaybtn_onclick = function () {
-    inbox_container.classList = "hideContainer"
-    week_container.classList = "hideContainer"
-    today_container.classList = "showContainer"
+function inbox(){
+
 }
-
-
-window.inboxbtn_onclick = function () {
-    today_container.classList = "hideContainer"
-    week_container.classList = "hideContainer"
-    inbox_container.classList = "showContainer"
-}
-
 // Current Active Inbox, Today, Week or projects
 
 document.querySelectorAll(".nav").forEach((el) =>{
@@ -81,5 +104,8 @@ export default currentStaus
     1. check localStorage if there is already exist project
         a. if Exist getlocalstorage items and print in to website
         b. if no Exist createElement in LocalStorage and set as active
-       
+  
+    2. Do that when user click btn site show what he wants
+    
 */
+

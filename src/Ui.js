@@ -1,4 +1,4 @@
-// btns
+import { handleFormTaskProjectSelect } from "./Task" 
 
 export function initalizeButtons(){
     const createProjectBtn = document.querySelector("#create_btn")
@@ -32,4 +32,27 @@ function handleArrowShowProjectBtn(event){
     }
 }
 
-initalizeButtons()
+function currentStaus(event) {
+    const activeProject = document.querySelector(".active")
+
+    activeProject.classList.remove("active")
+    event.target.classList.add("active")
+
+    let name = event.target.getAttribute("name")
+    createProjectContent(name)
+    
+}
+
+
+function createProjectContent(project_name) {
+    const template = `
+        <div class="showContainer">
+            <h1>${project_name}</h1>
+        </div>
+    `
+    
+    document.querySelector(".showContainer").remove()
+    document.querySelector(".main_container").insertAdjacentHTML("afterbegin", template)
+    
+}
+export default {createProjectContent, initalizeButtons, currentStaus}

@@ -71,7 +71,7 @@
                 <div class="projectContent">
                     <span>Project</span>
                     <select  name="taskProject" id="projectTask" class="inputForm">
-                        <option value="Inbox">Inbox</option>
+                        <option value="0">Inbox</option>
                     </select>
                 </div>
                 
@@ -90,15 +90,15 @@
             <div class="top_menu">
                 <ul class="nav">
                     
-                    <li class="inbox-btn" onclick="inboxbtn_onclick()" data-id="inbox" >
+                    <li class="inbox-btn"  projectid = "0"  data-id="inbox">
                         <img src="<%= require('./assets/inbox.png') %>"  alt="" width="24px">
                         <span>Inbox</span>
                     </li>
-                    <li id="today" class="today-btn active" onclick="todaybtn_onclick()" data-id="today">
+                    <li id="today" class="today-btn active"  data-id="today">
                         <img src="<%= require('./assets/today.png') %>" alt="" width="24px">
                         <span>Today</span>
                     </li>
-                    <li id="week" class="week-btn" onclick="weekbtn_onclick()" data-id="week">
+                    <li id="week" class="week-btn"  data-id="week">
                         <img src="<%= require('./assets/7-days.png') %>" alt="" width="24px">
                         <span>Week</span>
                     </li>
