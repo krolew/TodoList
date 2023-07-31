@@ -4,12 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Todo List</title>
+    <title>
+        Todo List
+    </title>
+    <link rel = "icon" href ="listing.png" type = "image/x-icon">
 <script defer src="bundle.js"></script></head>
 <body>
     <header>
         <div class="logo">
-            <p>Todo List</p>
+            <p>ToDo</p>
+            <img src="logo.png" alt="">
         </div>
     </header>
 
@@ -22,7 +26,7 @@
                 <hr>
                 <div class="projectContent">
                     <span>Name</span>
-                    <input type="text" name="project_name" class="inputForm" maxlength="100">
+                    <input type="text" name="projectName" class="inputForm" maxlength="24">
                     <small class="errorText"></small>
                 </div>
                 <div class="btn_container">
@@ -33,8 +37,8 @@
         </form>
     </div>
     
-    <div id="hiddenTaskForm" class="modal">
-        <form id="taskForm" class="modal-content animate" action="#">
+    <div id="modalTaskForm" class="modal">
+        <form id="taskForm" class="modal-content animate taskForm" action="#">
             <div class="projectFormContainer">
                 <div class="projectHeader">
                     <h1>New Task</h1>
@@ -42,7 +46,7 @@
                 <hr>
 
                 <div class="projectContent">
-                    <span>Title</span>
+                    <span>Name</span>
                     <input type="text" name="taskName" class="inputForm" maxlength="100">
                 </div>
 
@@ -68,12 +72,12 @@
                 <div class="projectContent">
                     <span>Project</span>
                     <select  name="taskProject" id="projectTask" class="inputForm">
-                        <option value="0">Inbox</option>
+                        <!-- <option value="0">Inbox</option> -->
                     </select>
                 </div>
                 
                 <div class="btn_container">
-                    <button type="button" onclick="document.getElementById('hiddenTaskForm').style.display='none'" class="btn-cancel">Close</button>
+                    <button id="cancelTaskBtn" type="button" onclick="document.getElementById('hiddenTaskForm').style.display='none'" class="btn-cancel">Close</button>
                     <button class="btn-submit">Add Task</button>
                 </div>
             </div>
@@ -85,15 +89,15 @@
             <div class="top_menu">
                 <ul class="nav">
                     
-                    <li id="inbox" class="inbox-btn"  projectid = "0"  data-id="inbox">
+                    <li id="inbox" class="inbox-btn" data-projectname="Inbox">
                         <img src="inbox.png"  alt="" width="24px">
                         <span>Inbox</span>
                     </li>
-                    <li id="today" class="today-btn active"  data-id="today">
+                    <li id="today" class="today-btn"  data-projectname="Today">
                         <img src="today.png" alt="" width="24px">
                         <span>Today</span>
                     </li>
-                    <li id="week" class="week-btn"  data-id="week">
+                    <li id="week" class="week-btn"  data-projectname="Week">
                         <img src="7-days.png" alt="" width="24px">
                         <span>Week</span>
                     </li>
@@ -110,18 +114,23 @@
                 </div>
                 
                 <ul id="projectList" class="nav nav-project" >
-                    <li>s</li>
-                    <li name="Siłownia">Siłownia</li>
+                    <!-- <li>s</li>
+                    <li name="Siłownia">Siłownia</li> -->
                     
                 </ul>
             </div>
         </div>
 
         <div class="main_container">
-            <div class="showContainer todayContainer" id="today">
-                <h1>Today</h1>
+            <div class="view_content">
+                <div class="showContainer todayContainer" id="mainContainer">
+                    <h1 id="mainHeader">Today</h1>
+                </div>
+                <div class="TaskList">
+                    <!-- <div>task</div>eccdsafdasadfs -->
+                </div>
+                <button class="add_task_btn"  ><img src="plus.png" alt=""  width="16px" onclick=""><span>Add task</span></button>
             </div>
-            <button class="add_task_btn"  ><img src="plus.png" alt=""  width="16px" onclick=""><span>Add task</span></button>
         </div>
     </div>
 
