@@ -20,7 +20,9 @@
   "homepage": "https://github.com/krolew/ToDoList#readme",
   "devDependencies": {
     "css-loader": "^6.7.3",
+    "gh-pages": "^5.0.0",
     "html-webpack-plugin": "^5.5.0",
+    "push-dir": "^0.4.1",
     "sass": "^1.57.1",
     "sass-loader": "^13.2.0",
     "style-loader": "^3.3.1",
