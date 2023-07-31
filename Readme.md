@@ -1,19 +1,23 @@
 ToDo List
 
-Todo-items
--title
--description, details
--dueDate
--priority
--delete
+Todo-projects:
+    -default projects
+    -adding,delete projects
 
-Todo-projects
--adding,delete projects
+Todo-items:
+    -title
+    -description, details
+    -dueDate
+    -priority
+    -delete
+    -update
 
-Todo-projects-input
--name
+Storage:
+    -projects
+    -tasks
 
-Storage 
--store projects, and tasks
+App created with HTML, CSS, JS, Webpack
 
 [My Awesome App](https://krolew.github.io/TodoList/)
+
+
