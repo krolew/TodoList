@@ -1,0 +1,8 @@
+* [33m95e176a[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m Add exissting project files to Git
+* [33mbdd8154[m Add tasks to storage and add files to cleaner code
+* [33ma0dd5bd[m Fix arrow button now works in chrome && add adding task to storage
+* [33m50081e3[m Add project form validation and add task form
+* [33md413100[m working with project button
+* [33m721d002[m setup html and css for menu and header
+* [33m59ee702[m Initial webpack setup
+* [33m4a46acf[m[33m ([m[1;31morigin/main[m[33m)[m Initial commit

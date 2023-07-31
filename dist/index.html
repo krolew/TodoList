@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Todo List
+    </title>
+    <link rel = "icon" href ="listing.png" type = "image/x-icon">
+<script defer src="bundle.js"></script></head>
+<body>
+    <header>
+        <div class="logo">
+            <p>ToDo</p>
+            <img src="logo.png" alt="">
+        </div>
+    </header>
+
+    <div id="hiddenForm" class="modal" >
+        <form id="projectForm" class="modal-content animate" action="#">
+            <div class="projectFormContainer">
+                <div class="projectHeader" >
+                    <h1>New Project</h1>
+                </div>
+                <hr>
+                <div class="projectContent">
+                    <span>Name</span>
+                    <input type="text" name="projectName" class="inputForm" maxlength="24">
+                    <small class="errorText"></small>
+                </div>
+                <div class="btn_container">
+                    <button type="button" onclick="document.getElementById('hiddenForm').style.display='none'" class="btn-cancel">Close</button>
+                    <button id="create-project" class="btn-submit" >Add Project</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    
+    <div id="modalTaskForm" class="modal">
+        <form id="taskForm" class="modal-content animate taskForm" action="#">
+            <div class="projectFormContainer">
+                <div class="projectHeader">
+                    <h1>New Task</h1>
+                </div>
+                <hr>
+
+                <div class="projectContent">
+                    <span>Name</span>
+                    <input type="text" name="taskName" class="inputForm" maxlength="100">
+                </div>
+
+                <div class="projectContent">
+                    <span>Description</span>
+                    <textarea name="taskDescription" id="" class="textAreaForm" maxlength="270"></textarea>
+                </div>
+
+                <div class="projectContent">
+                    <span>Due Date:</span>
+                    <input id="dateTask" type="date" name="taskDate"  class="inputForm">
+                </div>
+
+                <div class="projectContent">
+                    <span>Priority</span>
+                    <select name="taskPriority" id="" class="inputForm select-wrapper">
+                        <option value="Low">Low</option>
+                        <option value="Medium">Medium</option>
+                        <option value="High">High</option>           
+                    </select>
+                </div>
+
+                <div class="projectContent">
+                    <span>Project</span>
+                    <select  name="taskProject" id="projectTask" class="inputForm">
+                        <!-- <option value="0">Inbox</option> -->
+                    </select>
+                </div>
+                
+                <div class="btn_container">
+                    <button id="cancelTaskBtn" type="button" onclick="document.getElementById('hiddenTaskForm').style.display='none'" class="btn-cancel">Close</button>
+                    <button class="btn-submit">Add Task</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="container">
+        <div class="left_menu">
+            <div class="top_menu">
+                <ul class="nav">
+                    
+                    <li id="inbox" class="inbox-btn" data-projectname="Inbox">
+                        <img src="inbox.png"  alt="" width="24px">
+                        <span>Inbox</span>
+                    </li>
+                    <li id="today" class="today-btn"  data-projectname="Today">
+                        <img src="today.png" alt="" width="24px">
+                        <span>Today</span>
+                    </li>
+                    <li id="week" class="week-btn"  data-projectname="Week">
+                        <img src="7-days.png" alt="" width="24px">
+                        <span>Week</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="project_menu">
+                <div class="add-project-bar">
+                    <span>Projects</span>
+                    <div class="project-btns">
+                        <img src="plus.png" alt="" id="create_btn" width="16px" >
+                        <div id="arrow" class="arrow" aria-expanded=false></div>
+                    </div>
+                </div>
+                
+                <ul id="projectList" class="nav nav-project" >
+                    <!-- <li>s</li>
+                    <li name="Siłownia">Siłownia</li> -->
+                    
+                </ul>
+            </div>
+        </div>
+
+        <div class="main_container">
+            <div class="view_content">
+                <div class="showContainer todayContainer" id="mainContainer">
+                    <h1 id="mainHeader">Today</h1>
+                </div>
+                <div class="TaskList">
+                    <!-- <div>task</div>eccdsafdasadfs -->
+                </div>
+                <button class="add_task_btn"  ><img src="plus.png" alt=""  width="16px" onclick=""><span>Add task</span></button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
