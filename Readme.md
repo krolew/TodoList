@@ -8,12 +8,12 @@ Todo-items
 -delete
 
 Todo-projects
--default projects
 -adding,delete projects
 
 Todo-projects-input
 -name
 
+Storage 
+-store projects, and tasks
 
-css
--basic animations XD
+[My Awesome App](https://krolew.github.io/TodoList/)
