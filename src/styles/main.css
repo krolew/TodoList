@@ -29,6 +29,18 @@ header {
     align-items: center;
     padding: 20px;
 }
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo p {
+    font-size: 26px;
+}
+.logo img {
+    margin-left: 10px;
+}
 .container {
     height: 95vh;
     display: grid;
@@ -46,13 +58,15 @@ header {
 .nav {
     list-style: none;
 }
+
 .nav li{
-    margin: 15px 0;
+    margin: 10px 0;
     font-size: 16px;
     color: var(--white);
-    padding: 7px;
+    padding: 6px;
     cursor: pointer;
 }
+
 .nav li:hover{
     background-color: #42445e;
     border: 3px;
@@ -66,18 +80,15 @@ header {
     margin-left: 4px;
 }
 
-
 .add-project-bar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-.add-project-bar {
     font-size: 16px;
     margin-top: 30px;
     margin-bottom: 10px;
     cursor: pointer;
+    color: var(--white)
 }
 .project-btns {
     display: flex;
@@ -88,7 +99,7 @@ header {
     height: 16px;
     width: 16px;
     padding-top: 2px;
-    margin: 0px 20px;
+    margin: 0px 3px 0px 15px;
 }
 .arrow::before{
     position: absolute;
@@ -113,7 +124,7 @@ header {
 .nav-project {
     visibility: hidden;
     opacity: 0;
-    transition: opacity 0.6s linear;
+    transition: opacity 5s linear;
 } 
 
 .dropdown {
@@ -123,12 +134,23 @@ header {
 }
 
 .nav-project li, .dropdown li{
-    margin-left: 5px;
+    margin-left: 9px;
     color: var(--white);
     font-size: 16px;
     padding: 5px;
     display: flex;
+    
     align-items: center;
+    position: relative;
+}
+
+.project-delete {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 10px 5px 0 0;
+    
+    
 }
 
 .nav-project li, .dropdown li::before {
@@ -137,6 +159,7 @@ header {
     display: inline-block; 
     width: 1em;
     font-size: 24px;
+    
     /* background-color: aqua; */
 }
 
@@ -237,8 +260,126 @@ hr {
 /* RIGHT CONTENT */
 .main_container {
     background-color: var(--gray);
-    padding: 30px 80px;
+    width: 100%;
 }
+
+.view_content {
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 43px auto;
+}
+#mainHeader {
+    color: #fff;
+}
+.TaskList {
+    color: var(--white);
+    font-size: 16px;
+}
+
+.taskBox {
+    padding: 10px;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    border-left: 5px solid #fff;
+    font-size: 14px;
+    
+}
+
+.taskCheck input[type="checkbox"]{
+    background-color: red;
+    display: block; 
+    width: 30px;
+    height: 14px;   
+}
+
+.taskName {
+    flex-grow: 2;
+    margin: 0 5px;
+}
+
+.taskDueDate{
+    margin: 0 10px;
+}
+
+.taskDescription {
+    margin: 0 5px;
+}
+
+.taskEdit {
+    margin: 0 5px;
+}
+.taskRemove {
+    color: red;
+    margin: 0 10px;
+}
+
+.taskRemove:hover, .taskEdit:hover{
+    transition: 0.8s;
+    mix-blend-mode: soft-light;
+    cursor: pointer;
+}
+
+/* Task Checked */
+.checked > .taskName, .checked > .taskDueDate{
+    text-decoration: line-through;
+}
+
+.checked > .taskEdit img, .checked > .taskRemove{
+    opacity: 0.3;
+}
+
+.checked > .taskEdit img:hover, .checked > .taskRemove:hover{
+    opacity: 0.9;
+}
+
+/* Task Details */
+.taskDetailsModal {
+    display: block;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgb(0, 0, 0, 0.4);
+    padding-top: 60px;
+}
+
+.taskDetails {
+    width: 450px;
+    margin: 15% auto 15% auto;
+    border: 1px solid #000;
+    background-color: var(--navy);
+    color: var(--white);
+    border: 10px;
+    border-radius: 10px;
+    padding: 30px;
+}
+
+.taskDetailsName {
+    margin-bottom: 10px;
+    word-wrap: break-word;
+}
+
+.taskDetailsDuedate {
+    margin: 5px 0;
+}
+
+.taskDetailsPriority {
+    margin: 5px 0;
+}
+
+.taskDetailsDescription{
+    inline-size: 150px;
+    overflow-wrap: break-word;
+}
+
+
 
 /* Inbox Content */
 .inbox {
@@ -249,7 +390,7 @@ hr {
     background-color: rgb(0, 0, 0, 0);
     border: 0;
     cursor: pointer;
-    margin: 20px 0;
+    margin: 20px 10px;
     display: flex;
 }
 
@@ -313,4 +454,32 @@ small {
 
 
 
+@media (max-width: 767px) {
+    header {
+        justify-content: center;
+        /* padding: 30px; */
+    }
+
+    .logo p{
+        color: var(--white)
+    }
+    
+    .main_container {
+        height: 100vh;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        
+    }
+
+    .nav-project {
+        display: none;
+    }
+
+    .add-project-bar span{
+        margin-left: 7px;
+    }
+}
 

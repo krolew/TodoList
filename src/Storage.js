@@ -1,51 +1,113 @@
-const projectToStorage = (project) => {
-    let projects_list = JSON.parse(localStorage.getItem("projects"))     
-        
-    // If project list is not existing in local storage
-    if (projects_list == null){
-        projects_list = []
-    }
-    projects_list.push(project)
-    localStorage.setItem("projects", JSON.stringify(projects_list))
-}
+import Project from "./Project"
+import ProjectList from "./ProjectList"
+import Task from "./Task"
 
-const taskToStorage = (task) => {
-    console.log(task)
-    // When user check project not inbox
-    if (task.projectId !== 0)
-    {
-        let projectList = JSON.parse(localStorage.getItem("projects")) 
+
+const Storage = (() =>{
+    
+    const getProjectsList = () => {
+        let projectsList =  Object.assign(
+            new ProjectList(), 
+            JSON.parse(localStorage.getItem("projectsList")) 
+        )
+
+        projectsList.setProjects(
+            projectsList
+            .getProjects()
+            .map(project => Object.assign(new Project(), project))
+        )
         
-        // If project list is not existing in local storage
-        if (projectList == null){
-            return;
-        }
+        projectsList.getProjects()
+        .forEach(project =>
+            project.setTasks(
+                project.getTasks().map(task => Object.assign(new Task(), task))
+            )
+        )
+
+        return projectsList
+    }
+
+    const saveProjectList = (data) => {
+        localStorage.setItem("projectsList", JSON.stringify(data))
+    }
+
+    const addProject = (project) => {
+        let projectsList =  getProjectsList()
+        projectsList.addProject(project)
+        saveProjectList(projectsList)
+    }
+
+    const deleteProject = (projectName) => {
+        let projectsList = getProjectsList()
+        projectsList.deleteProject(projectName)
+        saveProjectList(projectsList)
+    }
+
+    const checkTask = (projectName, taskName, boolean) => {
+        let projectsList =  getProjectsList()   
+        projectsList.getProject(projectName).getTask(taskName).setChecked(boolean)
+        saveProjectList(projectsList)
+    }
+
+    const updateTask = (projectName, taskName, newTask) => {
         
-        let project = projectList.find(project => project.id === task.projectId)
+        let projectsList = getProjectsList()
         
-        project.todos.push(task)
-        localStorage.setItem("projects", JSON.stringify(projectList))
+        projectsList.getProject(projectName).getTask(taskName)
+        .setDescription(newTask.description)
+
+        projectsList.getProject(projectName).getTask(taskName)
+        .setDueDate(newTask.description)
+
+        projectsList.getProject(projectName).getTask(taskName)
+        .setDueDate(newTask.duedate)
+
+        projectsList.getProject(projectName).getTask(taskName)
+        .setPriority(newTask.priority)
+
+        projectsList.getProject(projectName).getTask(taskName)
+        .setName(newTask.name)
+
+        saveProjectList(projectsList)
     }
     
-    // When user check inbox as a project 
-    if (task.projectId == 0)
-    {
-        let inboxList = JSON.parse(localStorage.getItem("inbox"))
-            
-        // If localStorage don't have any tasks in inbox
-        if (inboxList === null)
-        {
-            inboxList = [{
-                "id": 0,
-                "name": "inbox",
-                "tasks": []
-            }]
-                
-        }
-        inboxList[0].tasks.push(task)
-            
-        localStorage.setItem("inbox", JSON.stringify(inboxList))
+    const addTask = (projectName, task) => {
+        let projectsList = getProjectsList()
+        projectsList.getProject(projectName).addTask(task)
+        saveProjectList(projectsList)
     }
-}
+
+    const deleteTask = (projectName, taskName) => {
+        let projectList = getProjectsList()
+        projectList.getProject(projectName).deleteTask(taskName)
+        saveProjectList(projectList)
+    }
+
+    const getTodayProjects = () => {
+        let projectList = getProjectsList()
+        projectList.updateTodayProject()
+        saveProjectList(projectList)
+    }
+
+    const getWeekProject = () => {
+        let projectList = getProjectsList()
+        projectList.updateWeekProject()
+        saveProjectList(projectList)
+    }
     
-export default {projectToStorage, taskToStorage}
+    return {
+        getProjectsList,
+        addProject,
+        deleteProject,
+        addTask,
+        checkTask,
+        updateTask,
+        deleteTask,
+        getTodayProjects,
+        getWeekProject
+    }
+
+})()
+
+export default Storage
+
